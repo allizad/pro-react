@@ -1,14 +1,12 @@
-React App Boilerplate
+Pro-React Book CodeAlong
 =====================
-
-Quickstart project template for learning React.
 
 ### Objective
 
-This boilerplate is purposefully simple to show the minimal setup needed to create React projects with Webpack and Babel. It aims to be a starting point for learning React and as such avoids advanced configurations while providing a solid foundation for new React projects.
+This project is a simple code-along with the [Pro React textbook](http://www.amazon.com/Pro-React-Cassio-Sousa-Antonio/dp/1484212614/ref=sr_1_1?ie=UTF8&qid=1453843853&sr=8-1&keywords=pro+react+book).
 
 ### Usage
-**Clone this repository**
+**The original boilerplate repository**
 ```
 git clone git@github.com:pro-react/react-app-boilerplate.git
 ```
@@ -35,14 +33,13 @@ npm run build
 This will generate a minimized bundle.js file on the `public` folder.
 
 
-### Missing Features
-
-This boilerplate focuses solely on transforming and bundling javascript files - all other static files are served directly from the public folder without any processing. While useful for learning React, this setup doesn't use Webpack and Babel in their full capabilities - which include transforming and bundling projects assets (such as stylesheets), modularizing CSS, hot reloading and etc. Please refer to [Webpack](//webpack.github.io) and [Babel](//babeljs.io) docs to learn more. If you are looking for a feature-rich bootstrap for React, take a look at [webpack-express-boilerplate by christianalfoni](//github.com/christianalfoni/webpack-express-boilerplate).
-
-
 ### Dependencies
+
+--Original--
 
 * React & React-DOM
 * Webpack & webpack-dev-server
 * Babel Core
 * Babel Loader (With "es2015" and "react" presets)
+
+--What I added--
