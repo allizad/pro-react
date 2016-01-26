@@ -5,7 +5,7 @@ var webpack = require('webpack');
  */
 var config = {
   devtool: 'eval-source-map',
-  entry:  __dirname + "/app/App.js",
+  entry: [ __dirname + "/app/App.js", 'bootstrap-loader'],
   output: {
     path: __dirname + "/public",
     filename: "bundle.js"
@@ -22,8 +22,14 @@ var config = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
-      }
+        loaders: ["style", "css", "sass"]
+      },
+      {
+        test: /\.css$/, // Only .css files
+        loader: 'style!css' // Run both loaders
+      },
+      { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
+      { test: /\.(ttf|eot)$/, loader: 'file' },
     ]
   },
   devServer: {
