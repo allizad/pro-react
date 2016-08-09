@@ -8,11 +8,22 @@
   <body>
 
     <div id="app">
+      <div class="sidebar sidebar-transition">
+        <ul>
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+        </ul>
+      </div>
       <div id='root'>
       </div>
     </div>
 
     <script src="bundle.js"></script>
+
+    <button onclick="document.querySelector('.sidebar').classList.add('sidebar-transition-active')">
+      ☰
+    </button>
 
   </body>
 </html>

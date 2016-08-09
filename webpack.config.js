@@ -4,7 +4,7 @@ var webpack = require('webpack');
  * Default webpack configuration for development
  */
 var config = {
-  devtool: 'eval-source-map',
+  devtool: 'eval',
   entry: [ __dirname + "/app/App.js", 'bootstrap-loader'],
   output: {
     path: __dirname + "/public",

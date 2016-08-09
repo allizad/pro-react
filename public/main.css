@@ -4,3 +4,32 @@ body {
 #root {
   height: 100%;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  padding: 15px;
+  border-bottom: solid 1px #eee;
+  background-color: #ddd;
+}
+.sidebar {
+  background-color: #eee;
+  box-shadow: 1px 0 3px #888888;
+  position: absolute;
+  width: 12rem;
+  height: 100%;
+  z-index: 10000;
+}
+
+.sidebar-transition {
+  opacity: 0;
+  left: -15rem;
+}
+
+.sidebar-transition-active {
+  opacity: 1;
+  left: 0;
+  transition: ease-in-out 0.5s;
+}
