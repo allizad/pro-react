@@ -1,1 +1,1 @@
-import React, { Component } from 'react';import {render} from 'react-dom';require('bootstrap/dist/css/bootstrap.css');require('./styles/main.scss');import KanbanBoardContainer from './KanbanBoardContainer';render(<KanbanBoardContainer />, document.getElementById('root'));
+import React, { Component } from 'react';import {render} from 'react-dom';require('bootstrap/dist/css/bootstrap.css');require('./styles/main.scss');import AnimatedShoppingList from './AnimatedShoppingList.js';render(<AnimatedShoppingList />, document.getElementById('root'));
