@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import 'babel-polyfill';
 
 var ITEMS = [
   {id: 1, name: "Milk"},
   {id: 2, name: "Yoghurt"},
   {id: 3, name: "Orange Juice"}
-]
+];
 
 class AnimatedShoppingList extends Component {
   constructor(){
@@ -47,9 +49,13 @@ class AnimatedShoppingList extends Component {
     ));
 
     return (
-      <div>
+      <div className="container">
 
+        <ReactCSSTransitionGroup transitionName="example"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}>
         {shoppingItems}
+        </ReactCSSTransitionGroup>
 
         <input type="text" value={this.state.newItem} onKeyDown={this.handleChange.bind(this)} />
       </div>

@@ -1,1 +1,1 @@
-import React, { Component } from 'react';import {render} from 'react-dom';require('bootstrap/dist/css/bootstrap.css');require('./styles/main.scss');import AnimatedShoppingList from './AnimatedShoppingList.js';render(<AnimatedShoppingList />, document.getElementById('root'));
+import React, { Component } from 'react';import {render} from 'react-dom';require('bootstrap/dist/css/bootstrap.css');require('./styles/main.scss');import AnimatedShoppingList from './AnimatedShoppingList';render(<AnimatedShoppingList />, document.getElementById('root'));
