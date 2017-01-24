@@ -1,11 +1,10 @@
 var webpack = require('webpack');
-
 /*
  * Default webpack configuration for development
  */
-var config = {
+ module.exports = {
   devtool: 'eval-source-map',
-  entry: [ __dirname + "/app/App.js", 'bootstrap-loader'],
+  entry: [ __dirname + "/app/App.js"],
   output: {
     path: __dirname + "/public",
     filename: "bundle.js"
@@ -14,44 +13,12 @@ var config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel',
+        exclude: /(node_modules)/,
+        loader: 'babel', // ‘babel-loader’ is also a legal name to reference
         query: {
-          presets: ['es2015','react']
+          presets: ['react', 'es2015']
         }
-      },
-      {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
-      },
-      {
-        test: /\.css$/, // Only .css files
-        loader: 'style!css' // Run both loaders
-      },
-      { test: /\.(woff2?|svg)$/, loader: 'url?limit=10000' },
-      { test: /\.(ttf|eot)$/, loader: 'file' },
+      }
     ]
-  },
-  devServer: {
-    contentBase: "./public",
-    colors: true,
-    historyApiFallback: true,
-    inline: true
-  },
+  }
 }
-
-/*
- * If bundling for production, optimize output
- */
-if (process.env.NODE_ENV === 'production') {
-  config.devtool = false;
-  config.plugins = [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({comments: false}),
-    new webpack.DefinePlugin({
-      'process.env': {NODE_ENV: JSON.stringify('production')}
-    })
-  ];
-};
-
-module.exports = config;
