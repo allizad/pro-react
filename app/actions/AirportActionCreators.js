@@ -1,58 +1,33 @@
 import AppDispatcher from '../AppDispatcher';
-import constants from '../constants';
+import constants from '../constants'
 import AirCheapAPI from '../api/AirCheapAPI';
 
 let AirportActionCreators = {
 
-  fetchAirports: function(){
-    AirCheapAPI.fetchAirports();
-    AppDispatcher.dispatch({
-      type: constants.FETCH_AIRPORTS
-    })
+  fetchAirports() {
+    AppDispatcher.dispatchAsync(AirCheapAPI.fetchAirports(), {
+      request: constants.FETCH_AIRPORTS,
+      success: constants.FETCH_AIRPORTS_SUCCESS,
+      failure: constants.FETCH_AIRPORTS_ERROR
+    });
   },
 
-  fetchAirportsSuccess: function(response){
-    AppDispatcher.dispatch({
-      type: constants.FETCH_AIRPORT_SUCCESS,
-      payload: {response}
-    })
-  },
-
-  fetchAirportsError: function(error){
-    AppDispatcher.dispatch({
-      type: constants.FETCH_AIRPORTS_ERROR,
-      payload: {error}
-    })
-  },
-
-  chooseAirport: function(target,code){
+  chooseAirport(target, code) {
     AppDispatcher.dispatch({
       type: constants.CHOOSE_AIRPORT,
-      target,
-      code
-    })
+      target: target,
+      code: code
+    });
   },
 
-  fetchTickets: function(){
-    AirCheapAPI.fetchTickets();
-    AppDispatcher.dispatch({
-      type: constants.FETCH_TICKETS
-    })
-  },
-
-  fetchTicketsSuccess: function(response){
-    AppDispatchers.dispatch({
-      type: constants.FETCH_TICKETS_SUCCESS,
-      payload: {response}
-    })
-  },
-
-  fetchTicketsError: function(response){
-    AppDispatchers.dispatch({
-      type: constants.FETCH_TICKETS_ERROR,
-      payload: {response}
-    })
+  fetchTickets(origin, destination) {
+    AppDispatcher.dispatchAsync(AirCheapAPI.fetchTickets(origin, destination), {
+      request: constants.FETCH_TICKETS,
+      success: constants.FETCH_TICKETS_SUCCESS,
+      failure: constants.FETCH_TICKETS_ERROR
+    });
   }
+
 };
 
 export default AirportActionCreators;

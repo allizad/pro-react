@@ -1,7 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // Default data configuration
-
 const dateConfig = {
   weekday: "short",
   year: "numeric",
@@ -12,33 +11,32 @@ const dateConfig = {
 };
 
 class TicketItem extends Component {
-  render(){
+  render() {
     let {ticket} = this.props;
-    let departureTime = new Date(ticket.segment[0].departureTime).toLocaleDateString("en-US", dateConfig);
+    let departureTime = new Date(ticket.segment[0].departureTime).toLocaleDateString("en-US",dateConfig);
     let arrivalTime = new Date(ticket.segment[ticket.segment.length-1].arrivalTime).toLocaleDateString("en-US",dateConfig);
+
     let stops;
-    if (ticket.segment.length === 2) {
+    if(ticket.segment.length === 2){
       stops = '1 stop';
-    } else if (ticket.segment.length-1 > 1) {
+    } else if(ticket.segment.length-1 > 1) {
       stops = ticket.segment.length-1 + ' stops';
     }
 
     return(
-      <div className="ticket">
+      <div className='ticket'>
         <span className="ticket-company">{ticket.company}</span>
-
         <span className="ticket-location">
-          <strong>{ticket.segment[0].origin}</strong>{'  '}
+          <strong>{ticket.segment[0].origin}</strong>{' '}
           <small>{departureTime}</small>
         </span>
-
-        <span className="ticket-separator"></span>
-
+        <span className="ticket-separator">
+        ⇀
+        </span>
         <span className="ticket-location">
-          <strong>{ticket.segment[ticket.segment.length-1].destination}</strong>{'  '}
+          <strong>{ticket.segment[ticket.segment.length-1].destination}</strong>{' '}
           <small>{arrivalTime}</small>
         </span>
-
         <span className="ticket-connection">
           {stops}
         </span>
@@ -46,12 +44,9 @@ class TicketItem extends Component {
           <button>{ticket.points} points</button>
         </span>
       </div>
-    )
-
-
+    );
   }
 }
-
 TicketItem.propTypes = {
   ticket: PropTypes.shape({
     id: PropTypes.string,
@@ -59,7 +54,7 @@ TicketItem.propTypes = {
     points: PropTypes.number,
     duration: PropTypes.number,
     segment: PropTypes.array
-  })
+  }),
 };
 
 export default TicketItem;
