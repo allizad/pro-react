@@ -1,8 +1,8 @@
 import AppDispatcher from '../AppDispatcher';
 import constants from '../constants';
-import FluxStore from 'flux/utils';
+import {MapStore} from 'flux/utils';
 
-class RouteStore extends FluxStore.MapStore {
+class RouteStore extends MapStore {
   reduce(state, action){
     switch (action.type) {
       case constants.CHOOSE_AIRPORT:
