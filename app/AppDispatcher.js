@@ -1,10 +1,14 @@
-import {Dispatcher} from 'flux';
+// https://www.npmjs.com/package/flux#installing-flux
+var Dispatcher = require('flux').Dispatcher;
+var assign = require('object-assign');
 
-class AppDispatcher extends Dispatcher {
-  dispatch(action={}) {
-    console.log("Dispatched", action);
-    super.dispatch(action);
+var AppDispatcher = assign(new Dispatcher(), {
+  handleViewAction: function(action) {
+    this.dispatch({
+      source: 'VIEW_ACTION',
+      action: action
+    });
   }
-}
+});
 
-export default AppDispatcher;
+module.exports = AppDispatcher;
